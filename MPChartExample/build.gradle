@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
     defaultConfig {
         applicationId "com.xxmassdeveloper.mpchartexample"
-        minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 57
-        versionName '3.1.0'
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 61
+        versionName '3.1.1'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -17,10 +18,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.xxmassdeveloper.mpchartexample'
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:1.0.2"
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation "androidx.appcompat:appcompat:1.5.1"
+    implementation 'com.google.android.material:material:1.7.0'
     implementation project(':MPChartLib')
+    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
