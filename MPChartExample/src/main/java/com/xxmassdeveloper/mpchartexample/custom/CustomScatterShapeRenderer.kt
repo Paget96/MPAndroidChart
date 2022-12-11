@@ -4,7 +4,6 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import com.github.mikephil.charting.interfaces.datasets.IScatterDataSet
 import com.github.mikephil.charting.renderer.scatter.IShapeRenderer
-import com.github.mikephil.charting.utils.ViewPortHandler
 
 /**
  * Custom shape renderer that draws a single line.

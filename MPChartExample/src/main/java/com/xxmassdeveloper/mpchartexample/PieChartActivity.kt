@@ -24,8 +24,6 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
-import com.github.mikephil.charting.utils.ColorTemplate
-import com.github.mikephil.charting.utils.MPPointF
 import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase
 
 class PieChartActivity : DemoBase(), OnSeekBarChangeListener, OnChartValueSelectedListener {

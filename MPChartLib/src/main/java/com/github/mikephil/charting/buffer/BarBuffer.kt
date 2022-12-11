@@ -1,130 +1,111 @@
+package com.github.mikephil.charting.buffer
 
-package com.github.mikephil.charting.buffer;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+open class BarBuffer(size: Int, dataSetCount: Int, containsStacks: Boolean) :
+    AbstractBuffer<IBarDataSet>(size) {
+    protected var mDataSetIndex = 0
+    protected var mDataSetCount = 1
+    protected var mContainsStacks = false
+    protected var mInverted = false
 
-public class BarBuffer extends AbstractBuffer<IBarDataSet> {
+    /** width of the bar on the x-axis, in values (not pixels)  */
+    protected var mBarWidth = 1f
 
-    protected int mDataSetIndex = 0;
-    protected int mDataSetCount = 1;
-    protected boolean mContainsStacks = false;
-    protected boolean mInverted = false;
-
-    /** width of the bar on the x-axis, in values (not pixels) */
-    protected float mBarWidth = 1f;
-
-    public BarBuffer(int size, int dataSetCount, boolean containsStacks) {
-        super(size);
-        this.mDataSetCount = dataSetCount;
-        this.mContainsStacks = containsStacks;
+    init {
+        mDataSetCount = dataSetCount
+        mContainsStacks = containsStacks
     }
 
-    public void setBarWidth(float barWidth) {
-        this.mBarWidth = barWidth;
+    fun setBarWidth(barWidth: Float) {
+        mBarWidth = barWidth
     }
 
-    public void setDataSet(int index) {
-        this.mDataSetIndex = index;
+    fun setDataSet(index: Int) {
+        mDataSetIndex = index
     }
 
-    public void setInverted(boolean inverted) {
-        this.mInverted = inverted;
+    fun setInverted(inverted: Boolean) {
+        mInverted = inverted
     }
 
-    protected void addBar(float left, float top, float right, float bottom) {
-
-        buffer[index++] = left;
-        buffer[index++] = top;
-        buffer[index++] = right;
-        buffer[index++] = bottom;
+    protected fun addBar(left: Float, top: Float, right: Float, bottom: Float) {
+        buffer[index++] = left
+        buffer[index++] = top
+        buffer[index++] = right
+        buffer[index++] = bottom
     }
 
-    @Override
-    public void feed(IBarDataSet data) {
-
-        float size = data.getEntryCount() * phaseX;
-        float barWidthHalf = mBarWidth / 2f;
-
-        for (int i = 0; i < size; i++) {
-
-            BarEntry e = data.getEntryForIndex(i);
-
-            if(e == null)
-                continue;
-
-            float x = e.getX();
-            float y = e.getY();
-            float[] vals = e.getYVals();
-
+    override fun feed(data: IBarDataSet) {
+        val size = data.entryCount * phaseX
+        val barWidthHalf = mBarWidth / 2f
+        var i = 0
+        while (i < size) {
+            val e = data.getEntryForIndex(i)
+            if (e == null) {
+                i++
+                continue
+            }
+            val x = e.x
+            var y = e.y
+            val vals = e.yVals
             if (!mContainsStacks || vals == null) {
-
-                float left = x - barWidthHalf;
-                float right = x + barWidthHalf;
-                float bottom, top;
-
+                val left = x - barWidthHalf
+                val right = x + barWidthHalf
+                var bottom: Float
+                var top: Float
                 if (mInverted) {
-                    bottom = y >= 0 ? y : 0;
-                    top = y <= 0 ? y : 0;
+                    bottom = if (y >= 0) y else 0f
+                    top = if (y <= 0) y else 0f
                 } else {
-                    top = y >= 0 ? y : 0;
-                    bottom = y <= 0 ? y : 0;
+                    top = if (y >= 0) y else 0f
+                    bottom = if (y <= 0) y else 0f
                 }
 
                 // multiply the height of the rect with the phase
-                if (top > 0)
-                    top *= phaseY;
-                else
-                    bottom *= phaseY;
-
-                addBar(left, top, right, bottom);
-
+                if (top > 0) top *= phaseY else bottom *= phaseY
+                addBar(left, top, right, bottom)
             } else {
-
-                float posY = 0f;
-                float negY = -e.getNegativeSum();
-                float yStart = 0f;
+                var posY = 0f
+                var negY = -e.negativeSum
+                var yStart = 0f
 
                 // fill the stack
-                for (int k = 0; k < vals.length; k++) {
-
-                    float value = vals[k];
-
+                for (k in vals.indices) {
+                    val value = vals[k]
                     if (value == 0.0f && (posY == 0.0f || negY == 0.0f)) {
                         // Take care of the situation of a 0.0 value, which overlaps a non-zero bar
-                        y = value;
-                        yStart = y;
+                        y = value
+                        yStart = y
                     } else if (value >= 0.0f) {
-                        y = posY;
-                        yStart = posY + value;
-                        posY = yStart;
+                        y = posY
+                        yStart = posY + value
+                        posY = yStart
                     } else {
-                        y = negY;
-                        yStart = negY + Math.abs(value);
-                        negY += Math.abs(value);
+                        y = negY
+                        yStart = negY + Math.abs(value)
+                        negY += Math.abs(value)
                     }
-
-                    float left = x - barWidthHalf;
-                    float right = x + barWidthHalf;
-                    float bottom, top;
-
+                    val left = x - barWidthHalf
+                    val right = x + barWidthHalf
+                    var bottom: Float
+                    var top: Float
                     if (mInverted) {
-                        bottom = y >= yStart ? y : yStart;
-                        top = y <= yStart ? y : yStart;
+                        bottom = if (y >= yStart) y else yStart
+                        top = if (y <= yStart) y else yStart
                     } else {
-                        top = y >= yStart ? y : yStart;
-                        bottom = y <= yStart ? y : yStart;
+                        top = if (y >= yStart) y else yStart
+                        bottom = if (y <= yStart) y else yStart
                     }
 
                     // multiply the height of the rect with the phase
-                    top *= phaseY;
-                    bottom *= phaseY;
-
-                    addBar(left, top, right, bottom);
+                    top *= phaseY
+                    bottom *= phaseY
+                    addBar(left, top, right, bottom)
                 }
             }
+            i++
         }
-
-        reset();
+        reset()
     }
 }

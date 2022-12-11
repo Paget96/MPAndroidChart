@@ -15,7 +15,6 @@ import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IValueFormatter
-import com.github.mikephil.charting.utils.ViewPortHandler
 import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase
 import java.text.DecimalFormat
 import kotlin.math.max

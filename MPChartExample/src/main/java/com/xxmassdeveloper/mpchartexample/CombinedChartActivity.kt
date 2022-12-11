@@ -12,7 +12,6 @@ import com.github.mikephil.charting.components.XAxis.XAxisPosition
 import com.github.mikephil.charting.components.YAxis.AxisDependency
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
-import com.github.mikephil.charting.utils.ColorTemplate
 import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase
 
 class CombinedChartActivity : DemoBase() {

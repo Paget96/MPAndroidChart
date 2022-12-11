@@ -22,7 +22,6 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
-import com.github.mikephil.charting.utils.ColorTemplate
 import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase
 import java.text.SimpleDateFormat
 import java.util.*

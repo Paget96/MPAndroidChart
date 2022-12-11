@@ -1,24 +1,13 @@
 package com.xxmassdeveloper.mpchartexample.notimportant
 
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-import android.graphics.Typeface
 import android.os.Bundle
 import com.xxmassdeveloper.mpchartexample.R
-import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase
-import android.content.pm.PackageManager
-import androidx.core.app.ActivityCompat
-import com.google.android.material.snackbar.Snackbar
-import com.github.mikephil.charting.charts.Chart
-import com.xxmassdeveloper.mpchartexample.notimportant.ContentItem
-import android.annotation.SuppressLint
 import android.widget.AdapterView.OnItemClickListener
-import com.xxmassdeveloper.mpchartexample.notimportant.MyAdapter
 import android.content.Intent
 import android.net.Uri
 import android.view.*
 import android.widget.*
-import com.github.mikephil.charting.utils.Utils
 import com.xxmassdeveloper.mpchartexample.LineChartActivity1
 import com.xxmassdeveloper.mpchartexample.MultiLineChartActivity
 import com.xxmassdeveloper.mpchartexample.LineChartActivity2

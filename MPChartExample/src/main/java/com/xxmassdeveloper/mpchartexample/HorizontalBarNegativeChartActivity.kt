@@ -24,7 +24,6 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
-import com.github.mikephil.charting.utils.MPPointF
 import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase
 
 class HorizontalBarNegativeChartActivity : DemoBase(), OnSeekBarChangeListener,

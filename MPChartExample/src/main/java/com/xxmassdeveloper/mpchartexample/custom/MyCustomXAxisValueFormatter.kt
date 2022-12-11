@@ -2,7 +2,6 @@ package com.xxmassdeveloper.mpchartexample.custom
 
 import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
-import com.github.mikephil.charting.utils.ViewPortHandler
 import java.text.DecimalFormat
 
 /**

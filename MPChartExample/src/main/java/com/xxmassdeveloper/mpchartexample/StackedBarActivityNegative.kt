@@ -24,7 +24,6 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IValueFormatter
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
-import com.github.mikephil.charting.utils.ViewPortHandler
 import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase
 import java.text.DecimalFormat
 

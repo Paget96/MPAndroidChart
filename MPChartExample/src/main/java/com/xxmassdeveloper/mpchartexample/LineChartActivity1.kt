@@ -29,7 +29,6 @@ import com.github.mikephil.charting.formatter.IFillFormatter
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
-import com.github.mikephil.charting.utils.Utils
 import com.xxmassdeveloper.mpchartexample.custom.MyMarkerView
 import com.xxmassdeveloper.mpchartexample.notimportant.DemoBase
 
@@ -212,7 +211,7 @@ class LineChartActivity1 : DemoBase(), OnSeekBarChangeListener, OnChartValueSele
                 IFillFormatter { dataSet, dataProvider -> chart!!.axisLeft.axisMinimum }
 
             // set color of filled area
-            if (Utils.getSDKInt() >= 18) {
+            if (Utils.sDKInt >= 18) {
                 // drawables only supported on api level 18 and above
                 val drawable = ContextCompat.getDrawable(this, R.drawable.fade_red)
                 set1.fillDrawable = drawable

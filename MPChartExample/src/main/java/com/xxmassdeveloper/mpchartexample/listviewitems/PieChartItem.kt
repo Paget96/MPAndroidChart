@@ -14,7 +14,6 @@ import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.ChartData
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.formatter.PercentFormatter
-import com.github.mikephil.charting.utils.ColorTemplate
 import com.xxmassdeveloper.mpchartexample.R
 
 class PieChartItem(cd: ChartData<*>, c: Context) : ChartItem(cd) {

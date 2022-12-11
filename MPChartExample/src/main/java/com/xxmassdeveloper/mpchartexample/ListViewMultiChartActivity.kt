@@ -9,7 +9,6 @@ import android.view.*
 import android.widget.*
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import com.github.mikephil.charting.utils.ColorTemplate
 import com.xxmassdeveloper.mpchartexample.listviewitems.BarChartItem
 import com.xxmassdeveloper.mpchartexample.listviewitems.ChartItem
 import com.xxmassdeveloper.mpchartexample.listviewitems.LineChartItem

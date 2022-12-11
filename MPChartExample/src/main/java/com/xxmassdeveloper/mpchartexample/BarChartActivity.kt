@@ -23,8 +23,6 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
-import com.github.mikephil.charting.utils.Fill
-import com.github.mikephil.charting.utils.MPPointF
 import com.xxmassdeveloper.mpchartexample.custom.DayAxisValueFormatter
 import com.xxmassdeveloper.mpchartexample.custom.MyAxisValueFormatter
 import com.xxmassdeveloper.mpchartexample.custom.XYMarkerView
